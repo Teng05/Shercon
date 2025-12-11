@@ -8,56 +8,49 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-  <!-- NAVIGATION -->
-<nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
 
-    <!-- LOGO -->
-    <img src="Pics/logo.png" class="h-10 w-auto">
+        <img src="Pics/logo.png" class="h-10 w-auto">
 
-    <!-- BURGER BUTTON (MOBILE ONLY) -->
-    <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
-      ☰
-    </button>
+        <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
+            ☰
+        </button>
 
-    <!-- NAV LINKS (HIDDEN on MOBILE, FLEX on DESKTOP) -->
-    <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="rooms.html">Rooms</a></li>
-      <li><a href="activities.html">Activities</a></li>
-      <li><a href="accommodations.html">Accommodations</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="contact.html">Contact</a></li>
+        <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="teamBuilding.html">Team Building</a></li>
+            <li><a href="events.html">Events</a></li>
+
+        </ul>
+
+    </div>
+
+    <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="teamBuilding.html">Team Building</a></li>
+            <li><a href="events.html">Events</a></li>
     </ul>
-
-  </div>
-
-  <!-- MOBILE MENU DROPDOWN -->
-  <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="rooms.html">Rooms</a></li>
-    <li><a href="activities.html">Activities</a></li>
-    <li><a href="accommodations.html">Accommodations</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
 </nav>
 
 <script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
 </script>
 
 
-<!-- logo section -->
-    <div class="bg-white w-full">
-  <div class="w-full flex justify-center py-6">
-    <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
-  </div>
+<div class="bg-white w-full">
+    <div class="w-full flex justify-center py-6">
+        <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+    </div>
 </div>
 
     <section class="bg-white shadow-sm border-b">
@@ -85,10 +78,10 @@
                         <label class="block text-gray-700 text-sm font-bold mb-2">Room Type</label>
                         <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                             <option selected>All Types</option>
-                            <option>Daytour Cottages</option>
-                            <option>Overnight Room Accommodations</option>
-                            <option>Cliffview Residences</option>
-                            <option>Function Hall</option>
+                            <option value="Daytour">Daytour Cottages</option>
+                            <option value="Overnight">Overnight Room Accommodations</option>
+                            <option value="Cliffview">Cliffview Residences</option>
+                            <option value="Function">Function Hall</option>
                         </select>
                     </div>
                     <div class="flex items-end">
@@ -100,28 +93,38 @@
             </div>
 
 
-            <section class="py-8">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Daytour Cottages & Halls</h2>
-            
-            <div id="cottage-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                </div>
-        </div>
-    </section>
-        </div>
-    </section>
+            <section class="py-12">
+                <div class="max-w-7xl mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Day Tour Cottages</h2>
+                    <div id="Daytour-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        </div>
 
-    
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Overnight Accommodation</h2>
+                    <div id="Overnight-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        </div>
+                    
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Cliffview Residences</h2>
+                    <div id="Cliffview-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        </div>
+
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Function Halls</h2>
+                    <div id="Function-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
 
     <script>
-        // 1. DATA ARRAY: Define the data for all 8 cottages here
         const cottagesData = [
+            // Daytour cottages data
             {
                 name: "KUBO SINGLE",
                 subtitle: "Standard Open-Air Cottage",
                 price: "1,000.00",
                 description: "A compact open cottage perfect for small groups enjoying a day tour.",
-                image: ["Pics/Kubo/kubo1.jpg"], // Changed to array for consistency
+                image: ["Pics/Kubo/kubo1.jpg"],
                 tags: ["Daytour", "Popular"],
                 buttonText: "Reserve Cottage",
                 features: [
@@ -129,14 +132,15 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-tree', text: 'Open-Air Design' },
                     { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "KUBO TWIN",
                 subtitle: "Standard Open-Air Cottage",
                 price: "2,000.00",
                 description: "Larger open cottage for family outings or medium-sized day tour groups.",
-                image: ["Pics/Kubo/kubo 2.jpg"], // Changed to array for consistency
+                image: ["Pics/Kubo/kubo 2.jpg"],
                 tags: ["Daytour", "Popular"],
                 buttonText: "Reserve Cottage",
                 features: [
@@ -144,14 +148,15 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-tree', text: 'Open-Air Design' },
                     { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "KUBO FAMILY",
                 subtitle: "Large Open-Air Cottage",
                 price: "2,500.00",
                 description: "A generously sized open cottage ideal for large family gatherings or groups.",
-                image: ["Pics/Kubo/kubo f.jpg"], // Changed to array for consistency
+                image: ["Pics/Kubo/kubo f.jpg"],
                 tags: ["Daytour"],
                 buttonText: "Reserve Cottage",
                 features: [
@@ -159,14 +164,14 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-tree', text: 'Open-Air Design' },
                     { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "BOUGAINVILLEA BENCHES",
                 subtitle: "Open Seating Area",
                 price: "800.00",
                 description: "Shaded bench area for smaller, casual day tour groups.",
-                // --- MODIFIED: Image is now an array containing multiple paths ---
                 image: ["Pics/BB/BB1.jpg", "Pics/BB/bb2.jpg", "Pics/BB/bb3.png"], 
                 tags: ["Daytour"],
                 buttonText: "Reserve Bench",
@@ -175,7 +180,8 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-leaf', text: 'Garden Area' },
                     { icon: 'fas fa-chair', text: 'Bench Seating' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "JAPANESE KUBO",
@@ -190,7 +196,8 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-fan', text: 'Themed Design' },
                     { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "MINI PAVILION",
@@ -205,10 +212,9 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-table', text: '**Tables & Chairs**' },
                     { icon: 'fas fa-umbrella', text: 'Covered Area' }
-                ]
+                ],
+                type: "Daytour"
             },
-            
-            // --- NEW 3 COTTAGES ADDED BELOW ---
             {
                 name: "KUBO CABANA",
                 subtitle: "Premium Covered Cabana",
@@ -222,22 +228,8 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-swimmer', text: 'Near Pool Area' },
                     { icon: 'fas fa-couch', text: 'Lounge Seating' }
-                ]
-            },
-            {
-                name: "PRIME PAVILION",
-                subtitle: "High Capacity Hall",
-                price: "2,500.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Prime Pavilion/img-5320.jpg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
                 name: "L PAVILION",
@@ -252,11 +244,28 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-tree', text: 'Open-Air Design' },
                     { icon: 'fas fa-chair', text: 'Simple Seating' }
-                ]
+                ],
+                type: "Daytour"
             },
             {
-                name: "BAHAY KUBO",
+                name: "PRIME PAVILION",
                 subtitle: "High Capacity Hall",
+                price: "2,500.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Prime Pavilion/img-5320.jpg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ],
+                type: "Daytour" 
+            },
+            {
+                name: "BAHAY KUBO (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "3,000.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/Bahay Kubo/img-5322.jpg", "Pics/Bahay Kubo/mg-5682_1.jpg", "Pics/Bahay Kubo/mg-6551.jpg"],
@@ -267,11 +276,12 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour" 
             },
             {
-                name: "FARM HUT",
-                subtitle: "High Capacity Hall",
+                name: "FARM HUT (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "3,500.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/Farm hut/farm-hut.jpg", "Pics/Farm hut/fullsizerende.jpg", "Pics/Farm hut/fullsizerender-7.jpg"],
@@ -282,11 +292,12 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour" 
             },
             {
-                name: "TREE HOUSE PAVILION",
-                subtitle: "High Capacity Hall",
+                name: "TREE HOUSE PAVILION (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "6,000.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/Tree house/1-165-orig.jpeg"],
@@ -297,11 +308,12 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour" 
             },
             {
-                name: "BOUGAINVILLEA HALL",
-                subtitle: "High Capacity Hall",
+                name: "BOUGAINVILLEA HALL (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "6,000.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/BH/bougainvillea-hall.jpeg"],
@@ -312,11 +324,12 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour" 
             },
             {
-                name: "LEISURE HALL",
-                subtitle: "High Capacity Hall",
+                name: "LEISURE HALL (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "8,000.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/Leisure hall/leisure-hall.jpeg"],
@@ -327,11 +340,12 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour" 
             },
             {
-                name: "INFINITY HALL",
-                subtitle: "High Capacity Hall",
+                name: "INFINITY HALL (Daytour Hall)",
+                subtitle: "Enclosed Hall on View Deck",
                 price: "8,000.00",
                 description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
                 image: ["Pics/infinity hall/infinity-pavilion-2-orig.jpeg"],
@@ -342,7 +356,222 @@
                     { icon: 'fas fa-sun', text: 'Day Use Only' },
                     { icon: 'fas fa-wind', text: 'Stunning View' },
                     { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ]
+                ],
+                type: "Daytour"
+            },
+
+            // Overnight Accommodation Data (Rooms & Suites)
+            {
+                name: "Pool Villa",
+                subtitle: "Private Pool Access Suite",
+                price: "12,000.00", // Adjusted price for an Overnight Villa
+                description: "A luxury suite with exclusive access to a private pool, ideal for family retreats.",
+                image: ["Pics/Overnight/Pool_Villa.jpg", "Pics/Prime Pavilion/img-5320.jpg"], // Assuming an image path
+                tags: ["Overnight", "Luxury", "Private Pool"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **8 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-bed', text: '2 Bedrooms' },
+                    { icon: 'fas fa-water', text: 'Private Pool' }
+                ],
+                type: "Overnight"
+            },
+            {
+                name: "Club Manuel Suites",
+                subtitle: "Standard Family Room",
+                price: "4,000.00",
+                description: "Comfortable and affordable room accommodation for small groups or families.",
+                image: ["Pics/Overnight/Club_Manuel_Suite.jpg"], // Assuming an image path
+                tags: ["Overnight", "Budget"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
+                    { icon: 'fas fa-bath', text: 'Private Bath' }
+                ],
+                type: "Overnight"
+            },
+            {
+                name: "ForestVille Suites",
+                subtitle: "Forest View Accommodation",
+                price: "3,000.00",
+                description: "A peaceful room nestled near the forest area, offering a tranquil escape.",
+                image: ["Pics/Overnight/Forestville_Suite.jpg", "Pics/Bahay Kubo/mg-6551.jpg"], // Assuming an image path
+                tags: ["Overnight", "Nature View"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
+                    { icon: 'fas fa-tree', text: 'Forest View' }
+                ],
+                type: "Overnight"
+            },
+            {
+                name: "Club Manuel Cabins",
+                subtitle: "Budget Twin Cabin",
+                price: "3,500.00",
+                description: "Simple and cozy cabin perfect for couples or friends on a short stay.",
+                image: ["Pics/Overnight/Club_Manuel_Cabin.jpg", "Pics/Farm hut/fullsizerender-7.jpg"], // Assuming an image path
+                tags: ["Overnight", "Cabin"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **2 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
+                    { icon: 'fas fa-shower', text: 'Shared Bath Option' }
+                ],
+                type: "Overnight"
+            },
+            
+            // Cliffview Residences Data
+            {
+                name: "Package 1 - Cliffview Residence",
+                subtitle: "Luxury View Deck Residence",
+                price: "15,000.00",
+                description: "Exclusive residence units offering a stunning panoramic cliff view and premium amenities.",
+                image: ["Pics/Cliffview/Cliffview_Residence.jpg", "Pics/Tree house/1-165-orig.jpeg"],
+                tags: ["Cliffview", "Luxury", "Best View"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **10 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-mountain', text: 'Cliff View' },
+                    { icon: 'fas fa-kitchen-set', text: 'Kitchenette' }
+                ],
+                type: "Cliffview"
+            },
+            {
+                name: "Package 2 - Cliffview Residence",
+                subtitle: "Duplex with Infinity Pool Access",
+                price: "6,000.00",
+                description: "A two-story unit with direct access to the resort's signature infinity pool.",
+                image: ["Pics/Cliffview/Infinity_Duplex.jpg", "Pics/BH/bougainvillea-hall.jpeg"],
+                tags: ["Cliffview", "Infinity Pool", "Premium"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-water', text: 'Pool Access' },
+                    { icon: 'fas fa-toilet', text: 'Private Restroom' }
+                ],
+                type: "Cliffview"
+            },
+            {
+                name: "Package 3 - Cliffview Residence ",
+                subtitle: "Large Family Guesthouse",
+                price: "8,000.00",
+                description: "A spacious, standalone house suitable for large families or groups looking for privacy.",
+                image: ["Pics/Cliffview/Blue_House.jpg", "Pics/Leisure hall/leisure-hall.jpeg"],
+                tags: ["Cliffview", "Large Group", "Private"],
+                buttonText: "Book Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **15 guests**' },
+                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
+                    { icon: 'fas fa-home', text: 'Entire House' },
+                    { icon: 'fas fa-utensils', text: 'Dining Area' }
+                ],
+                type: "Cliffview"
+            },
+            
+            // Function Hall Data
+            {
+                name: "Club Manuel Hall",
+                subtitle: "Wedding & Corporate Events",
+                price: "25,000.00",
+                description: "Our largest function space, perfect for grand weddings, corporate seminars, and big celebrations.",
+                image: ["Pics/Function/Grand_Ballroom.jpg", "Pics/Function/Grand_Ballroom_2.jpg"],
+                tags: ["Function", "High Capacity", "Events"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **300 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-microphone', text: 'Stage & A/V' },
+                    { icon: 'fas fa-handshake', text: 'Dedicated Staff' }
+                ],
+                type: "Function"
+            },
+            {
+                name: "PlayPool Hall",
+                subtitle: "Intimate Parties & Receptions",
+                price: "10,000.00",
+                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
+                image: ["Pics/Function/Garden_Gazebo.jpg"],
+                tags: ["Function", "Outdoor", "Intimate"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-tree', text: 'Garden Setting' },
+                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
+                ],
+                type: "Function"
+            },
+            {
+                name: "Ecology Hall",
+                subtitle: "Intimate Parties & Receptions",
+                price: "10,000.00",
+                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
+                image: ["Pics/Function/Garden_Gazebo.jpg"],
+                tags: ["Function", "Outdoor", "Intimate"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-tree', text: 'Garden Setting' },
+                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
+                ],
+                type: "Function"
+            },
+            {
+                name: "Infinity Hall",
+                subtitle: "Intimate Parties & Receptions",
+                price: "10,000.00",
+                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
+                image: ["Pics/Function/Garden_Gazebo.jpg"],
+                tags: ["Function", "Outdoor", "Intimate"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-tree', text: 'Garden Setting' },
+                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
+                ],
+                type: "Function"
+            },
+            {
+                name: "Tree House Pavilion",
+                subtitle: "Intimate Parties & Receptions",
+                price: "10,000.00",
+                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
+                image: ["Pics/Function/Garden_Gazebo.jpg"],
+                tags: ["Function", "Outdoor", "Intimate"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-tree', text: 'Garden Setting' },
+                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
+                ],
+                type: "Function"
+            },
+            {
+                name: "Conference Hall",
+                subtitle: "Intimate Parties & Receptions",
+                price: "10,000.00",
+                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
+                image: ["Pics/Function/Garden_Gazebo.jpg"],
+                tags: ["Function", "Outdoor", "Intimate"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
+                    { icon: 'fas fa-tree', text: 'Garden Setting' },
+                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
+                ],
+                type: "Function"
             },
         ];
 
@@ -357,6 +586,9 @@
                 if (tag === 'Premium') colorClass = 'bg-yellow-600';
                 if (tag === 'Budget') colorClass = 'bg-green-600';
                 if (tag === 'High Capacity') colorClass = 'bg-red-600';
+                if (tag === 'Overnight') colorClass = 'bg-purple-600'; // Added for clarity
+                if (tag === 'Cliffview') colorClass = 'bg-indigo-600'; // Added for clarity
+                if (tag === 'Function') colorClass = 'bg-pink-600'; // Added for clarity
                 return `<span class="${colorClass} text-white px-3 py-1 rounded-full text-sm font-semibold">${tag}</span>`;
             }).join('');
 
@@ -391,7 +623,7 @@
                 } else {
                     // If only one image, use the full width of the frame
                     imageContentHtml = `
-                        <div class="h-64 overflow-hidden">
+                        <div class="h-64 overflow-hidden rounded-t-xl">
                             <img src="${images[0]}" alt="${cottage.name}" class="w-full h-full object-cover">
                         </div>
                     `;
@@ -399,12 +631,16 @@
             } else {
                 // Image Missing Placeholder (H-64 for consistency)
                 imageContentHtml = `
-                    <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                    <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-t-xl">
                         <span class="text-gray-500 font-bold text-xl">IMAGE MISSING</span>
                     </div>
                 `;
             }
             
+            // Determine the price display text
+            const priceText = cottage.type === 'Daytour' ? `**+ Entrance Fee**` : `per night`;
+            const inquireButton = cottage.buttonText === 'Inquire Now';
+
             // Return the full HTML card string
             return `
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
@@ -436,7 +672,7 @@
                             </div>
                             <div class="text-right">
                                 <div class="text-3xl font-bold text-blue-600">₱${cottage.price}</div>
-                                <div class="text-gray-600 text-sm">**+ Entrance Fee**</div>
+                                <div class="text-gray-600 text-sm">${priceText}</div>
                             </div>
                         </div>
                         <p class="text-gray-600 mb-4">${cottage.description}</p>
@@ -446,7 +682,7 @@
                         </div>
 
                         <div class="flex space-x-3">
-                            <button class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold">
+                            <button class="flex-1 ${inquireButton ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-600 hover:bg-blue-700'} text-white py-3 rounded-lg font-semibold">
                                 ${cottage.buttonText}
                             </button>
                             <button class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
@@ -460,16 +696,35 @@
 
         // 3. DYNAMIC RENDERING: Loop through the data and render to the DOM
         document.addEventListener('DOMContentLoaded', () => {
-            const listContainer = document.getElementById('cottage-list');
-            let allCottagesHtml = '';
+            // Group data by type
+            const categorizedData = cottagesData.reduce((acc, cottage) => {
+                const type = cottage.type;
+                if (!acc[type]) {
+                    acc[type] = [];
+                }
+                acc[type].push(cottage);
+                return acc;
+            }, {});
 
-            // Generate HTML for all cottages
-            cottagesData.forEach(cottage => {
-                allCottagesHtml += generateCottageCard(cottage);
-            });
+            // Map data to the correct container IDs
+            const containers = {
+                'Daytour': document.getElementById('Daytour-list'),
+                'Overnight': document.getElementById('Overnight-list'),
+                'Cliffview': document.getElementById('Cliffview-list'),
+                'Function': document.getElementById('Function-list')
+            };
 
-            // Inject the generated HTML into the container
-            listContainer.innerHTML = allCottagesHtml;
+            // Render each category
+            for (const type in categorizedData) {
+                const listContainer = containers[type];
+                if (listContainer) {
+                    let sectionHtml = '';
+                    categorizedData[type].forEach(cottage => {
+                        sectionHtml += generateCottageCard(cottage);
+                    });
+                    listContainer.innerHTML = sectionHtml;
+                }
+            }
         });
     </script>
 </body>
