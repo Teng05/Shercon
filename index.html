@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shercon Resort - Tropical Farm & Ecology Park</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome (icons) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* small helper for smooth height transition */
+    .menu-collapse {
+      transition: max-height 260ms ease;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<!-- NAVIGATION -->
+<nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <img src="Pics/logo.png" class="h-10 w-auto">
+
+    <!-- BURGER BUTTON (MOBILE ONLY) -->
+    <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
+      ☰
+    </button>
+
+    <!-- NAV LINKS (HIDDEN on MOBILE, FLEX on DESKTOP) -->
+    <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+      <li><a href="inndex.html">Home</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="accommodations.html">Accommodations</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+  </div>
+
+  <!-- MOBILE MENU DROPDOWN -->
+  <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="activities.html">Activities</a></li>
+    <li><a href="accommodations.html">Accommodations</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <div class="pt-2 border-t border-gray-100">
+      <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 mb-2">Book Now</button>
+      <button class="w-full text-left text-gray-700 hover:text-blue-800">
+        <i class="fa-solid fa-phone mr-2"></i>Contact
+      </button>
+    </div>
+  </ul>
+  
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+
+    <!-- Logo -->
+        
+    <div class="bg-white w-full">
+  <div class="w-full flex justify-center py-6">
+    <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+  </div>
+</div>
+
+
+
+
+  <!-- HERO IMAGE -->
+   <container>
+<section>
+  <img id="heroImage" src="" class="w-full h-[600px] object-cover transition-all duration-300">
+</section>
+
+<!-- IMAGE THUMBNAIL STRIP (SCROLLABLE) -->
+<section class="bg-white py-4 shadow-sm">
+  <div class="max-w-7xl mx-auto px-3">
+    <div id="thumbStrip" class="flex space-x-3 overflow-x-auto scrollbar-hide">
+
+      <img src="Pics/LP/p1.png" data-img="Pics/LP/p1.png"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p2.png" data-img="Pics/LP/p2.png"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p3.png" data-img="Pics/LP/p3.png"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p4.png" data-img="Pics/LP/p4.png"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p5.png" data-img="Pics/LP/p5.png"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p6.jpg" data-img="Pics/LP/p6.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p7.jpg" data-img="Pics/LP/p7.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p8.jpg" data-img="Pics/LP/p8.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p9.jpg" data-img="Pics/LP/p9.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p10.jpg" data-img="Pics/LP/p10.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p11.jpg" data-img="Pics/LP/p11.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p12.jpg" data-img="Pics/LP/p12.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+
+      <img src="Pics/LP/p13.jpg" data-img="Pics/LP/p13.jpg"
+           class="thumb h-20 w-32 object-cover rounded-md cursor-pointer border-2 border-transparent">
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const heroImage = document.getElementById('heroImage');
+  const thumbs = document.querySelectorAll('.thumb');
+  let currentIndex = 0;
+  const duration = 5000; // 5secs
+
+  // 📌 AUTO-LOAD FIRST THUMBNAIL INTO HERO IMAGE
+  function setHeroImage(index) {
+    const imgPath = thumbs[index].getAttribute('data-img');
+    heroImage.src = imgPath;
+
+    // Highlight active thumbnail
+    thumbs.forEach(t => t.classList.remove('border-blue-600'));
+    thumbs[index].classList.add('border-blue-600');
+
+    currentIndex = index;
+  }
+
+  if (thumbs.length > 0) {
+    setHeroImage(0);
+  }
+
+  // 📌 CLICK THUMBNAILS TO CHANGE HERO IMAGE
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      setHeroImage(index);
+    });
+  });
+
+  // 📌 AUTOMATIC SLIDESHOW
+  setInterval(() => {
+    let nextIndex = (currentIndex + 1) % thumbs.length;
+    setHeroImage(nextIndex);
+  }, duration);
+</script>
+
+
+
+
+  <!--  BADGES -->
+<section class="text-center py-16 bg-white">
+  <h2 class="text-3xl font-bold text-gray-800 tracking-wide">SHERCON RESORT & ECOLOGY PARK</h2>
+  <p class="text-gray-600 mt-2">San Sebastian, Mataas na Kahoy, Batangas</p>
+
+  <div class="flex flex-wrap justify-center items-center mt10">
+    <img src="Pics/Logo 1/logo_1.jpeg" class="h-32 mx-20" alt="Logo 1">
+    <img src="Pics/Logo 1/logo2.png" class="h-32 mx-20" alt="Logo 2">
+    <img src="Pics/Logo 1/logo3.png" class="h-32 mx-20" alt="Logo 3">
+    <img src="Pics/Logo 1/logo4.jpeg" class="h-32 mx-20" alt="Logo 4">
+  </div>
+</section>
+
+
+  <!-- SIX CONTENT BLOCKS -->
+  <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6 pb-20">
+
+    <!-- ABOUT US -->
+    <div>
+      <img src="Pics/LP/au.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">ABOUT US</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Shercon Resort is known for its lush landscapes, relaxing ambiance,
+        and family-friendly destinations perfect for vacations and gatherings.
+      </p>
+    </div>
+
+    <!-- INQUIRIES -->
+    <div>
+      <img src="Pics/LP/ir.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">INQUIRIES & RESERVATIONS</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Our team is ready to assist you with bookings, events, and day tours.
+        Contact us for reservations and inquiries.
+      </p>
+    </div>
+
+    <!-- SWIM -->
+    <div>
+      <img src="Pics/LP/swim.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">SWIM</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Enjoy our signature pool areas, perfect for families and groups.
+        Relax in our multi-level pools surrounded by nature.
+      </p>
+    </div>
+
+    <!-- RELAX -->
+    <div>
+      <img src="Pics/LP/relax.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">RELAX</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Rejuvenate yourself in our peaceful cottages and nature-inspired rooms.
+      </p>
+    </div>
+
+    <!-- CELEBRATE -->
+    <div>
+      <img src="Pics/LP/celeb.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">CELEBRATE</h3>
+      <p class="text-gray-600 leading-relaxed">
+        From weddings to birthdays, our event venues offer the perfect setting
+        for your special occasions.
+      </p>
+    </div>
+
+    <!-- TEAM BUILDING -->
+    <div>
+      <img src="Pics/LP/TB.jpg" class="rounded-lg shadow-md h-48 w-full object-cover mb-4">
+      <h3 class="text-xl font-bold text-blue-900 mb-2">TEAM BUILDING</h3>
+      <p class="text-gray-600 leading-relaxed">
+        Strengthen teamwork with our obstacle courses and outdoor adventure activities.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-gray-300 text-sm">© 2024 Shercon Resort & Ecology Park. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

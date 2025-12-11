@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms & Cottages - Shercon Resort</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+  <!-- NAVIGATION -->
+<nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <img src="Pics/logo.png" class="h-10 w-auto">
+
+    <!-- BURGER BUTTON (MOBILE ONLY) -->
+    <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
+      ☰
+    </button>
+
+    <!-- NAV LINKS (HIDDEN on MOBILE, FLEX on DESKTOP) -->
+    <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="accommodations.html">Accommodations</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+  </div>
+
+  <!-- MOBILE MENU DROPDOWN -->
+  <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="rooms.html">Rooms</a></li>
+    <li><a href="activities.html">Activities</a></li>
+    <li><a href="accommodations.html">Accommodations</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+
+<!-- logo section -->
+    <div class="bg-white w-full">
+  <div class="w-full flex justify-center py-6">
+    <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+  </div>
+</div>
+
+    <section class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Check-in</label>
+                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Check-out</label>
+                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Guests</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4+ Guests</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Room Type</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option selected>All Types</option>
+                            <option>Daytour Cottages</option>
+                            <option>Overnight Room Accommodations</option>
+                            <option>Cliffview Residences</option>
+                            <option>Function Hall</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-search mr-2"></i>Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Daytour Cottages & Halls</h2>
+            
+            <div id="cottage-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                </div>
+        </div>
+    </section>
+        </div>
+    </section>
+
+    
+
+    <script>
+        // 1. DATA ARRAY: Define the data for all 8 cottages here
+        const cottagesData = [
+            {
+                name: "KUBO SINGLE",
+                subtitle: "Standard Open-Air Cottage",
+                price: "1,000.00",
+                description: "A compact open cottage perfect for small groups enjoying a day tour.",
+                image: ["Pics/Kubo/kubo1.jpg"], // Changed to array for consistency
+                tags: ["Daytour", "Popular"],
+                buttonText: "Reserve Cottage",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max 6 guests' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
+                    { icon: 'fas fa-chair', text: 'Seating Provided' }
+                ]
+            },
+            {
+                name: "KUBO TWIN",
+                subtitle: "Standard Open-Air Cottage",
+                price: "2,000.00",
+                description: "Larger open cottage for family outings or medium-sized day tour groups.",
+                image: ["Pics/Kubo/kubo 2.jpg"], // Changed to array for consistency
+                tags: ["Daytour", "Popular"],
+                buttonText: "Reserve Cottage",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **12 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
+                    { icon: 'fas fa-chair', text: 'Seating Provided' }
+                ]
+            },
+            {
+                name: "KUBO FAMILY",
+                subtitle: "Large Open-Air Cottage",
+                price: "2,500.00",
+                description: "A generously sized open cottage ideal for large family gatherings or groups.",
+                image: ["Pics/Kubo/kubo f.jpg"], // Changed to array for consistency
+                tags: ["Daytour"],
+                buttonText: "Reserve Cottage",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **20 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
+                    { icon: 'fas fa-chair', text: 'Seating Provided' }
+                ]
+            },
+            {
+                name: "BOUGAINVILLEA BENCHES",
+                subtitle: "Open Seating Area",
+                price: "800.00",
+                description: "Shaded bench area for smaller, casual day tour groups.",
+                // --- MODIFIED: Image is now an array containing multiple paths ---
+                image: ["Pics/BB/BB1.jpg", "Pics/BB/bb2.jpg", "Pics/BB/bb3.png"], 
+                tags: ["Daytour"],
+                buttonText: "Reserve Bench",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **6 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-leaf', text: 'Garden Area' },
+                    { icon: 'fas fa-chair', text: 'Bench Seating' }
+                ]
+            },
+            {
+                name: "JAPANESE KUBO",
+                subtitle: "Themed Open Cottage",
+                price: "1,000.00",
+                description: "A small cottage with a unique Japanese aesthetic, suitable for intimate groups.",
+                image: ["Pics/Japanese kubo/japanese-kubo-a.jpg", "Pics/Japanese kubo/japanese-kubo.jpg", "Pics/Japanese kubo/japanese-kubo1.jph"], 
+                tags: ["Daytour"],
+                buttonText: "Reserve Cottage",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **6 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-fan', text: 'Themed Design' },
+                    { icon: 'fas fa-chair', text: 'Seating Provided' }
+                ]
+            },
+            {
+                name: "MINI PAVILION",
+                subtitle: "Covered Seating Structure",
+                price: "2,000.00",
+                description: "A semi-private, covered pavilion with pre-arranged tables and chairs for convenience.",
+                image: ["Pics/Mini Pavilion/mini-pavilion-4_1.jpg", "Pics/Mini Pavilion/mini-pavilion3.jpg", "Pics/Mini Pavilion/mini-pavilion6_1.jpg"], 
+                tags: ["Daytour", "With Seating"],
+                buttonText: "Reserve Pavilion",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **12 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-table', text: '**Tables & Chairs**' },
+                    { icon: 'fas fa-umbrella', text: 'Covered Area' }
+                ]
+            },
+            
+            // --- NEW 3 COTTAGES ADDED BELOW ---
+            {
+                name: "KUBO CABANA",
+                subtitle: "Premium Covered Cabana",
+                price: "2,000.00",
+                description: "A larger, private cabana right next to the main pool, offering premium shade and space.",
+                image: ["Pics/Kubo Kabana/img-7155_1.jpg", "Pics/Kubo Kabana/img-7157_1.jpg", "Pics/Kubo Kabana/img-7158_1.jpg"],
+                tags: ["Daytour", "Premium"],
+                buttonText: "Reserve Cabana",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **15 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-swimmer', text: 'Near Pool Area' },
+                    { icon: 'fas fa-couch', text: 'Lounge Seating' }
+                ]
+            },
+            {
+                name: "PRIME PAVILION",
+                subtitle: "High Capacity Hall",
+                price: "2,500.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Prime Pavilion/img-5320.jpg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "L PAVILION",
+                subtitle: "Budget Open Cottage",
+                price: "4,000.00",
+                description: "Our most affordable, smallest open cottage for couples or very small groups.",
+                image: ["Pics/L Pavilion/l-pav-02.jpg"],
+                tags: ["Daytour", "Budget"],
+                buttonText: "Reserve Cottage",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
+                    { icon: 'fas fa-chair', text: 'Simple Seating' }
+                ]
+            },
+            {
+                name: "BAHAY KUBO",
+                subtitle: "High Capacity Hall",
+                price: "3,000.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Bahay Kubo/img-5322.jpg", "Pics/Bahay Kubo/mg-5682_1.jpg", "Pics/Bahay Kubo/mg-6551.jpg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "FARM HUT",
+                subtitle: "High Capacity Hall",
+                price: "3,500.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Farm hut/farm-hut.jpg", "Pics/Farm hut/fullsizerende.jpg", "Pics/Farm hut/fullsizerender-7.jpg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "TREE HOUSE PAVILION",
+                subtitle: "High Capacity Hall",
+                price: "6,000.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Tree house/1-165-orig.jpeg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'ideal for 30pax' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "BOUGAINVILLEA HALL",
+                subtitle: "High Capacity Hall",
+                price: "6,000.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/BH/bougainvillea-hall.jpeg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'ideal for 60pax' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "LEISURE HALL",
+                subtitle: "High Capacity Hall",
+                price: "8,000.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/Leisure hall/leisure-hall.jpeg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'ideal for 80pax' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+            {
+                name: "INFINITY HALL",
+                subtitle: "High Capacity Hall",
+                price: "8,000.00",
+                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
+                image: ["Pics/infinity hall/infinity-pavilion-2-orig.jpeg"],
+                tags: ["Daytour", "High Capacity", "Enclosed"],
+                buttonText: "Inquire Now",
+                features: [
+                    { icon: 'fas fa-users', text: 'ideal for 70pax' },
+                    { icon: 'fas fa-sun', text: 'Day Use Only' },
+                    { icon: 'fas fa-wind', text: 'Stunning View' },
+                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
+                ]
+            },
+        ];
+
+        // 2. JS FUNCTION: Function to generate the HTML string for a single cottage card
+        function generateCottageCard(cottage) {
+            
+            // Generate Tags HTML (e.g., Daytour, Popular)
+            const tagsHtml = cottage.tags.map(tag => {
+                let colorClass = 'bg-blue-600';
+                if (tag === 'Popular') colorClass = 'bg-orange-500';
+                if (tag === 'With Seating') colorClass = 'bg-teal-500';
+                if (tag === 'Premium') colorClass = 'bg-yellow-600';
+                if (tag === 'Budget') colorClass = 'bg-green-600';
+                if (tag === 'High Capacity') colorClass = 'bg-red-600';
+                return `<span class="${colorClass} text-white px-3 py-1 rounded-full text-sm font-semibold">${tag}</span>`;
+            }).join('');
+
+            // Generate Features HTML (e.g., Max 6 guests, Day Use Only)
+            const featuresHtml = cottage.features.map(feature => `
+                <div class="flex items-center">
+                    <i class="${feature.icon} text-blue-600 mr-2"></i>
+                    <span>${feature.text}</span>
+                </div>
+            `).join('');
+
+            // --- REFACTORED IMAGE CONTENT HTML LOGIC ---
+            let imageContentHtml = ``;
+            const images = Array.isArray(cottage.image) ? cottage.image : [cottage.image].filter(Boolean);
+
+            if (images.length > 0) {
+                // If there are multiple images, use a grid layout for the frame
+                if (images.length > 1) {
+                    const primaryImage = images[0];
+                    const secondaryImage = images[1];
+                    
+                    imageContentHtml = `
+                        <div class="grid grid-cols-3 h-64 gap-1 p-1">
+                            <div class="col-span-2 h-full overflow-hidden rounded-xl">
+                                <img src="${primaryImage}" alt="${cottage.name} Primary View" class="w-full h-full object-cover">
+                            </div>
+                            <div class="col-span-1 h-full overflow-hidden rounded-xl">
+                                <img src="${secondaryImage}" alt="${cottage.name} Secondary View" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // If only one image, use the full width of the frame
+                    imageContentHtml = `
+                        <div class="h-64 overflow-hidden">
+                            <img src="${images[0]}" alt="${cottage.name}" class="w-full h-full object-cover">
+                        </div>
+                    `;
+                }
+            } else {
+                // Image Missing Placeholder (H-64 for consistency)
+                imageContentHtml = `
+                    <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-bold text-xl">IMAGE MISSING</span>
+                    </div>
+                `;
+            }
+            
+            // Return the full HTML card string
+            return `
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        ${imageContentHtml}
+                        <div class="absolute top-4 left-4 flex space-x-2">
+                            ${tagsHtml}
+                        </div>
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50">
+                            <i class="far fa-heart text-gray-600"></i>
+                        </button>
+                        ${images.length > 1 ? `
+                            <div class="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full px-4 py-2 shadow-lg text-sm font-semibold cursor-pointer hover:bg-blue-700 transition duration-200">
+                                View All ${images.length} Photos
+                            </div>
+                        ` : `
+                            <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg text-sm text-gray-700 font-semibold cursor-pointer hover:bg-white transition duration-200">
+                                More Photos
+                            </div>
+                        `}
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">${cottage.name}</h3>
+                                <div class="flex items-center mt-1">
+                                    <span class="text-sm text-gray-600">${cottage.subtitle}</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold text-blue-600">₱${cottage.price}</div>
+                                <div class="text-gray-600 text-sm">**+ Entrance Fee**</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">${cottage.description}</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                            ${featuresHtml}
+                        </div>
+
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold">
+                                ${cottage.buttonText}
+                            </button>
+                            <button class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 3. DYNAMIC RENDERING: Loop through the data and render to the DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            const listContainer = document.getElementById('cottage-list');
+            let allCottagesHtml = '';
+
+            // Generate HTML for all cottages
+            cottagesData.forEach(cottage => {
+                allCottagesHtml += generateCottageCard(cottage);
+            });
+
+            // Inject the generated HTML into the container
+            listContainer.innerHTML = allCottagesHtml;
+        });
+    </script>
+</body>
+</html>
