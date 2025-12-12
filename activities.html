@@ -6,289 +6,208 @@
     <title>Activities - Shercon Resort</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            backdrop-filter: blur(4px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
-  <!-- NAVIGATION -->
-<nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <img src="Pics/logo.png" class="h-10 w-auto">
+            <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">☰</button>
+            <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="activities.html" class="text-teal-600">Activities</a></li>
+                <li><a href="teamBuilding.html">Team Building</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </div>
+        <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="teamBuilding.html">Team Building</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+    </nav>
 
-    <!-- LOGO -->
-    <img src="Pics/logo.png" class="h-10 w-auto">
-
-    <!-- BURGER BUTTON (MOBILE ONLY) -->
-    <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
-      ☰
-    </button>
-
-    <!-- NAV LINKS (HIDDEN on MOBILE, FLEX on DESKTOP) -->
-    <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="rooms.html">Rooms</a></li>
-      <li><a href="activities.html">Activities</a></li>
-      <li><a href="teamBuilding.html">Team Building</a></li>
-      <li><a href="events.html">Events</a></li>
-    </ul>
-
-  </div>
-
-  <!-- MOBILE MENU DROPDOWN -->
-  <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="rooms.html">Rooms</a></li>
-    <li><a href="activities.html">Activities</a></li>
-    <li><a href="teamBuilding.html">Team Building</a></li>
-    <li><a href="events.html">Events</a></li>
-  </ul>
-</nav>
-
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-</script>
-
-
-<!-- logo section -->
+    <!-- Logo Section -->
     <div class="bg-white w-full">
-  <div class="w-full flex justify-center py-6">
-    <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
-  </div>
-</div>
-            <section class="py-8">
+        <div class="w-full flex justify-center py-6">
+            <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+        </div>
+    </div>
+
+    <!-- Activities Section -->
+    <section class="py-8">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">Activities at Shercon Resort</h2>
-            
-            <div id="activity-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                </div>
-        </div>
-    </section>
+            <div id="activity-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
         </div>
     </section>
 
-    
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="bg-teal-600 text-white p-6 rounded-t-2xl relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-gray-200 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="text-2xl font-bold" id="modalActivityName">Book Activity</h3>
+                <p class="text-teal-100 mt-1" id="modalActivitySubtitle"></p>
+            </div>
 
-    <script>
-        // Activities data
-        const activitiesData = [
-    {
-        name: "Mini Golf",
-        subtitle: "Fun Outdoor Game",
-        price: "200",
-        description: "Enjoy a relaxing round of mini golf surrounded by Shercon’s peaceful greenery. Perfect for families, friends, and casual players.",
-        image: ["Pics/Activity/golf.jpg"],
-        tags: ["Free", "Water Activities"],
-        buttonText: "Book Slot",
-        features: [
-            { icon: 'fas fa-flag', text: 'Multiple Courses' },
-            { icon: 'fas fa-sun', text: 'Outdoor Activity' },
-            { icon: 'fas fa-clock', text: 'Open All Day' },
-            { icon: 'fas fa-users', text: 'Good for Groups' }
-        ]
-    },
-    {
-        name: "Go Kart",
-        subtitle: "Thrilling Driving Experience",
-        price: "100.00",
-        description: "Feel the rush as you race around our go-kart track. Safe, exciting, and perfect for beginners or competitive racers.",
-        image: ["Pics/Activity/Kart.jpg"],
-        tags: ["Indoor Games", "Paid"],
-        buttonText: "Reserve Slot",
-        features: [
-            { icon: 'fas fa-car', text: 'High-Speed Karts' },
-            { icon: 'fas fa-road', text: 'Safe Track' },
-            { icon: 'fas fa-clock', text: 'Per 10-Min Session' },
-            { icon: 'fas fa-users', text: 'Solo or Duo Ride' }
-        ]
-    },
-    {
-        name: "ATV Adventure",
-        subtitle: "Off-Road Outdoor Ride",
-        price: "200.00",
-        description: "Take on muddy trails and rough terrain with our ATV ride. A perfect mix of adrenaline and outdoor exploration.",
-        image: ["Pics/Activity/ATV.jpg"],
-        tags: ["Outdoor Adventures", "Paid"],
-        buttonText: "Start Adventure",
-        features: [
-            { icon: 'fas fa-motorcycle', text: 'Powerful ATVs' },
-            { icon: 'fas fa-tree', text: 'Nature Trails' },
-            { icon: 'fas fa-clock', text: '15-Min Ride' },
-            { icon: 'fas fa-users', text: 'Solo Activity' }
-        ]
-    },
-    {
-        name: "Airsoft Shooting",
-        subtitle: "Target Shooting Experience",
-        price: "100.00",
-        description: "Improve your aim with our airsoft shooting range. A fun and safe activity for beginners and enthusiasts.",
-        image: ["Pics/Activity/Airsoft.jpg"],
-        tags: ["Outdoor Adventures", "Paid"],
-        buttonText: "Join Session",
-        features: [
-            { icon: 'fas fa-bullseye', text: 'Target Practice' },
-            { icon: 'fas fa-shield-alt', text: 'Protective Gear Provided' },
-            { icon: 'fas fa-clock', text: 'Per Round Session' },
-            { icon: 'fas fa-users', text: 'Solo or Group' }
-        ]
-    },
-    {
-        name: "Archery",
-        subtitle: "Precision Shooting Activity",
-        price: "100.00",
-        description: "Learn the basics of archery or test your skills at our outdoor range. Fun, challenging, and beginner-friendly.",
-        image: ["Pics/Activity/Archery.jpg"],
-        tags: ["Outdoor Adventures", "Paid"],
-        buttonText: "Start Shooting",
-        features: [
-            { icon: 'fas fa-bullseye', text: 'Beginner-Friendly' },
-            { icon: 'fas fa-bow-arrow', text: 'Quality Bows Provided' },
-            { icon: 'fas fa-clock', text: '20-Min Session' },
-            { icon: 'fas fa-users', text: 'Solo Activity' }
-        ]
-    },
-    {
-        name: "Tower Activities",
-        subtitle: "Fun Climbing & Obstacle Challenges",
-        price: "Free",
-        description: "Enjoy a variety of tower challenges designed for fun, balance, and light adventure. Great for teens and families.",
-        image: ["Pics/Activity/Tower.jpg"],
-        tags: ["Free", "Outdoor"],
-        buttonText: "Try Activities",
-        features: [
-            { icon: 'fas fa-mountain', text: 'Multiple Challenges' },
-            { icon: 'fas fa-leaf', text: 'Outdoor Setting' },
-            { icon: 'fas fa-clock', text: 'Open All Day' },
-            { icon: 'fas fa-users', text: 'Good for Groups' }
-        ]
-    }
-];
-
-
-        // Function to generate the HTML string for a single activity card
-        function generateActivityCard(activity) {
-            
-            // Generate Tags HTML
-            const tagsHtml = activity.tags.map(tag => {
-                let colorClass = 'bg-blue-600';
-                if (tag === 'Free') colorClass = 'bg-green-600';
-                if (tag === 'Paid') colorClass = 'bg-orange-500';
-                if (tag === 'Water Activities') colorClass = 'bg-teal-500';
-                if (tag === 'Indoor Games') colorClass = 'bg-purple-600';
-                if (tag === 'Outdoor Adventures') colorClass = 'bg-red-600';
-                if (tag === 'Dining') colorClass = 'bg-yellow-600';
-                return `<span class="${colorClass} text-white px-3 py-1 rounded-full text-sm font-semibold">${tag}</span>`;
-            }).join('');
-
-            // Generate Features HTML
-            const featuresHtml = activity.features.map(feature => `
-                <div class="flex items-center">
-                    <i class="${feature.icon} text-blue-600 mr-2"></i>
-                    <span>${feature.text}</span>
-                </div>
-            `).join('');
-
-            // Image Content HTML Logic
-            let imageContentHtml = ``;
-            const images = Array.isArray(activity.image) ? activity.image : [activity.image].filter(Boolean);
-
-            if (images.length > 0) {
-                if (images.length > 1) {
-                    const primaryImage = images[0];
-                    const secondaryImage = images[1];
-                    
-                    imageContentHtml = `
-                        <div class="grid grid-cols-3 h-64 gap-1 p-1">
-                            <div class="col-span-2 h-full overflow-hidden rounded-xl">
-                                <img src="${primaryImage}" alt="${activity.name} Primary View" class="w-full h-full object-cover">
-                            </div>
-                            <div class="col-span-1 h-full overflow-hidden rounded-xl">
-                                <img src="${secondaryImage}" alt="${activity.name} Secondary View" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    imageContentHtml = `
-                        <div class="h-64 overflow-hidden">
-                            <img src="${images[0]}" alt="${activity.name}" class="w-full h-full object-cover">
-                        </div>
-                    `;
-                }
-            } else {
-                imageContentHtml = `
-                    <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
-                        <span class="text-gray-500 font-bold text-xl">IMAGE MISSING</span>
+            <!-- Modal Body -->
+            <div class="p-6">
+                <!-- Activity Details -->
+                <div class="mb-6 pb-6 border-b">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600">Price per person:</span>
+                        <span class="text-3xl font-bold text-teal-600" id="modalActivityPrice">₱200</span>
                     </div>
-                `;
-            }
-            
-            // Return the full HTML card string
-            return `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="relative">
-                        ${imageContentHtml}
-                        <div class="absolute top-4 left-4 flex space-x-2">
-                            ${tagsHtml}
+                    <p class="text-sm text-gray-500" id="modalActivityDescription"></p>
+                </div>
+
+                <!-- Booking Form -->
+                <form id="bookingForm" class="space-y-4">
+                    <!-- Date Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-calendar mr-2 text-teal-600"></i>Select Date
+                            </label>
+                            <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                         </div>
-                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50">
-                            <i class="far fa-heart text-gray-600"></i>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-clock mr-2 text-teal-600"></i>Preferred Time
+                            </label>
+                            <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                                <option value="">Choose time</option>
+                                <option>9:00 AM - 10:00 AM</option>
+                                <option>10:00 AM - 11:00 AM</option>
+                                <option>11:00 AM - 12:00 PM</option>
+                                <option>1:00 PM - 2:00 PM</option>
+                                <option>2:00 PM - 3:00 PM</option>
+                                <option>3:00 PM - 4:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Number of Participants -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-users mr-2 text-teal-600"></i>Number of Participants
+                        </label>
+                        <input type="number" min="1" max="20" value="1" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2 text-teal-600"></i>Full Name
+                            </label>
+                            <input type="text" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-phone mr-2 text-teal-600"></i>Contact Number
+                            </label>
+                            <input type="tel" required placeholder="09XX XXX XXXX" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2 text-teal-600"></i>Email Address
+                        </label>
+                        <input type="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-comment mr-2 text-teal-600"></i>Special Requests (Optional)
+                        </label>
+                        <textarea rows="3" placeholder="Any special requirements or questions..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"></textarea>
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="flex items-start">
+                        <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                        <label class="text-sm text-gray-600">
+                            I agree to the terms and conditions and understand that this booking is subject to availability confirmation.
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex space-x-3 pt-4">
+                        <button type="submit" class="flex-1 bg-teal-600 text-white py-4 rounded-lg hover:bg-teal-700 font-semibold text-lg transition duration-200">
+                            <i class="fas fa-check-circle mr-2"></i>Confirm Booking
                         </button>
-                        ${images.length > 1 ? `
-                            <div class="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full px-4 py-2 shadow-lg text-sm font-semibold cursor-pointer hover:bg-blue-700 transition duration-200">
-                                View All ${images.length} Photos
-                            </div>
-                        ` : `
-                            <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg text-sm text-gray-700 font-semibold cursor-pointer hover:bg-white transition duration-200">
-                                More Photos
-                            </div>
-                        `}
+                        <button type="button" id="cancelBooking" class="px-6 py-4 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold transition duration-200">
+                            Cancel
+                        </button>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900">${activity.name}</h3>
-                                <div class="flex items-center mt-1">
-                                    <span class="text-sm text-gray-600">${activity.subtitle}</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-3xl font-bold text-blue-600">${activity.price === 'Free' ? 'Free' : '₱' + activity.price}</div>
-                                <div class="text-gray-600 text-sm">${activity.price === 'Free' ? 'No Fee' : '+ Service Charge'}</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">${activity.description}</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
-                            ${featuresHtml}
-                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+  <div class="max-w-5xl mx-auto px-4 text-center">
 
-                        <div class="flex space-x-3">
-                            <button class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold">
-                                ${activity.buttonText}
-                            </button>
-                            <button class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                                <i class="fas fa-info-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+    <p class="text-gray-300 text-sm mb-6">
+      © 2024 Shercon Resort & Ecology Park. All Rights Reserved.
+    </p>
 
-        // Dynamic rendering
-        document.addEventListener('DOMContentLoaded', () => {
-            const listContainer = document.getElementById('activity-list');
-            let allActivitiesHtml = '';
+    <h3 class="font-semibold text-lg mb-2">CONTACT INFORMATION</h3>
 
-            // Generate HTML for all activities
-            activitiesData.forEach(activity => {
-                allActivitiesHtml += generateActivityCard(activity);
-            });
+    <p class="text-gray-300 mb-2">Reservation is REQUIRED.</p>
+    <p class="text-gray-300 mb-6">We do not accept walk-in as of the moment.</p>
 
-            // Inject the generated HTML into the container
-            listContainer.innerHTML = allActivitiesHtml;
-        });
-    </script>
+    <!-- Grid for Phone Numbers and Emails -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+      <!-- Left Column - Phone -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">
+          For inquiries and reservations, please call us at:
+        </h4>
+
+        <p class="text-center">0917-506-1204</p>
+        <p class="text-center">0922-838-5293</p>
+        <p class="text-center">0939-904-7130</p>
+        <p class="text-center">0917-117-5888</p>
+      </div>
+
+      <!-- Right Column - Email -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">You may also email us at:</h4>
+
+        <p class="text-center">info@sherconresort-ecologypark.com</p>
+        <p class="text-center">daytour@sherconresort-ecologypark.com</p>
+        <p class="text-center">overnight@sherconresort-ecologypark.com </p>
+        <p class="text-center">teambuilding@sherconresort-ecologypark.com</p>
+        <p class="text-center">weddings@sherconresort-ecologypark.com</p>
+      </div>
+
+    </div>
+
+    <p class="font-semibold text-sm mt-6">
+      (Office hours are from 8am to 6pm only)
+    </p>
+
+  </div>
+</footer>
+
+    <script src="/js/activities.js"></script>
 </body>
 </html>

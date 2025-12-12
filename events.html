@@ -6,353 +6,272 @@
     <title>Event Packages & Venues - Shercon Resort</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            backdrop-filter: blur(4px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     
-<nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-
-        <img src="Pics/logo.png" class="h-10 w-auto">
-
-        <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
-            ☰
-        </button>
-
-        <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+    <nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <img src="Pics/logo.png" class="h-10 w-auto">
+            <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">☰</button>
+            <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="teamBuilding.html">Team Building</a></li>
+                <li><a href="events.html" class="text-teal-600">Events</a></li>
+            </ul>
+        </div>
+        <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
             <li><a href="index.html">Home</a></li>
             <li><a href="rooms.html">Rooms</a></li>
             <li><a href="activities.html">Activities</a></li>
             <li><a href="teamBuilding.html">Team Building</a></li>
-            <li><a href="events.html" class="text-blue-600">Events</a></li>
+            <li><a href="events.html">Events</a></li>
         </ul>
+    </nav>
 
+    <div class="bg-white w-full">
+        <div class="w-full flex justify-center py-6">
+            <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+        </div>
     </div>
 
-    <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="rooms.html">Rooms</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="teamBuilding.html">Team Building</a></li>
-        <li><a href="events.html">Events</a></li>
-    </ul>
-</nav>
-
-<script>
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
-</script>
-
-
-<div class="bg-white w-full">
-    <div class="w-full flex justify-center py-6">
-        <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
-    </div>
-</div>
-
-<main class="pt-2">
-
-    <section class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 py-6">
-            <h1 class="text-4xl font-extrabold text-blue-800 mb-6">Plan Your Event</h1>
-            <div class="bg-gray-50 rounded-2xl p-6 mb-6 shadow-inner">
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Event Date</label>
-                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Guests</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <option>1 - 50</option>
-                            <option>51 - 100</option>
-                            <option>101 - 200</option>
-                            <option>200+ </option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Event Type</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <option selected>All Packages & Venues</option>
-                            <option>Wedding Packages</option>
-                            <option>Birthday Packages</option>
-                            <option>Photoshoot / Prenup</option>
-                            <option>Function Halls</option>
-                            <option>Outdoor Venues</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2">Venue Style</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                            <option selected>All Styles</option>
-                            <option>Indoor / Airconditioned</option>
-                            <option>Outdoor / Garden</option>
-                            <option>Poolside</option>
-                            <option>View Deck</option>
-                        </select>
-                    </div>
-                    <div class="flex items-end">
-                        <button class="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 font-bold transition duration-200">
-                            <i class="fas fa-search mr-2"></i>Check Availability
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Reception Packages</h2>
-            <div id="reception-packages-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                </div>
-
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Function Halls & Venues</h2>
-            <div id="venues-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                </div>
-        </div>
-    </section>
-
-</main>
-
-
-<script>
-    // 1. EVENT DATA (Mock data based on dropdown menu and standard resort offerings)
-    const eventsData = [
-        // --- Reception Packages ---
-        {
-            name: "The Grand Wedding Package",
-            subtitle: "All-inclusive Ceremony & Reception",
-            price: "180,000.00",
-            description: "A complete package covering venue rental, catering for 100 pax, basic decorations, and accommodation for the couple. Ideal for a stress-free wedding.",
-            image: ["Pics/Events/wedding1.jpg", "Pics/Events/wedding2.jpg"],
-            tags: ["Wedding", "Full Service", "100 Pax"],
-            buttonText: "Inquire on Dates",
-            features: [
-                { icon: 'fas fa-ring', text: 'Venue & Catering (100 pax)' },
-                { icon: 'fas fa-hotel', text: 'Overnight Suite' },
-                { icon: 'fas fa-microphone', text: 'Sound System' },
-                { icon: 'fas fa-calendar-check', text: 'Event Coordinator' }
-            ],
-            type: "reception"
-        },
-        {
-            name: "Classic Debut/Birthday Package",
-            subtitle: "Celebration Package (50 Guests)",
-            price: "55,000.00",
-            description: "An elegant package for birthdays and debuts, including a function hall, buffet catering for 50 people, and standard floral arrangements.",
-            image: ["Pics/Events/birthday1.jpg"],
-            tags: ["Birthday", "Debut", "50 Pax"],
-            buttonText: "Book this Package",
-            features: [
-                { icon: 'fas fa-birthday-cake', text: 'Function Hall Rental' },
-                { icon: 'fas fa-utensils', text: 'Catering (50 pax)' },
-                { icon: 'fas fa-music', text: 'Basic Lights & Sound' },
-                { icon: 'fas fa-clock', text: '4-Hour Event' }
-            ],
-            type: "reception"
-        },
-        {
-            name: "Prenup / Pre-Birthday Photoshoot",
-            subtitle: "All-day Site Use Permit",
-            price: "8,000.00",
-            description: "A permit for a full day (8:00 AM - 5:00 PM) of photo and video shoots across all resort non-exclusive locations. Includes private holding room.",
-            image: ["Pics/Events/prenup1.jpg", "Pics/Events/prenup2.jpg", "Pics/Events/prenup3.jpg"],
-            tags: ["Photoshoot", "Prenup", "Day Use"],
-            buttonText: "Request Permit",
-            features: [
-                { icon: 'fas fa-camera', text: 'All Resort Locations' },
-                { icon: 'fas fa-hourglass-half', text: '8:00 AM - 5:00 PM' },
-                { icon: 'fas fa-lock', text: 'Private Holding Room' },
-                { icon: 'fas fa-users', text: 'Max 5 Crew/Talents' }
-            ],
-            type: "reception"
-        },
-
-        // --- Function Halls & Venues ---
-        {
-            name: "Club Manuel Hall",
-            subtitle: "Airconditioned Indoor Venue",
-            price: "35,000.00",
-            description: "A modern, airconditioned hall suitable for corporate events, conferences, and high-end receptions. Rate is for venue rental only.",
-            image: ["Pics/Events/ClubManuel.jpg", "Pics/Events/ClubManuel2.jpg"],
-            tags: ["Function Hall", "Indoor", "High Capacity"],
-            buttonText: "View Hall Details",
-            features: [
-                { icon: 'fas fa-users', text: 'Capacity: **200 Pax**' },
-                { icon: 'fas fa-snowflake', text: 'Fully Airconditioned' },
-                { icon: 'fas fa-table', text: 'Tables & Chairs Included' },
-                { icon: 'fas fa-parking', text: 'Dedicated Parking' }
-            ],
-            type: "venue"
-        },
-        {
-            name: "Ecology Poolside & Pavilion",
-            subtitle: "Outdoor Event Space",
-            price: "40,000.00",
-            description: "A stunning outdoor venue combining a manicured garden area with the Ecology Pool backdrop, perfect for romantic evening receptions.",
-            image: ["Pics/Events/Poolside1.jpg", "Pics/Events/Poolside2.jpg"],
-            tags: ["Outdoor", "Poolside", "Garden"],
-            buttonText: "Inquire Venue",
-            features: [
-                { icon: 'fas fa-users', text: 'Capacity: **150 Pax**' },
-                { icon: 'fas fa-tree', text: 'Natural Lighting' },
-                { icon: 'fas fa-sun', text: 'Best for Sunset/Evening' },
-                { icon: 'fas fa-swimmer', text: 'Next to Ecology Pool' }
-            ],
-            type: "venue"
-        },
-        {
-            name: "Reception Hall",
-            subtitle: "Open-Air High-View Deck",
-            price: "25,000.00",
-            description: "An elevated, open-air pavilion offering breathtaking views of the surrounding area. Excellent for casual parties and seminars.",
-            image: ["Pics/Events/ReceptionHall.jpg"],
-            tags: ["View Deck", "Open-Air", "Medium Capacity"],
-            buttonText: "Check Availability",
-            features: [
-                { icon: 'fas fa-users', text: 'Capacity: **100 Pax**' },
-                { icon: 'fas fa-wind', text: 'High-View Deck' },
-                { icon: 'fas fa-table', text: 'Tables & Chairs Included' },
-                { icon: 'fas fa-fire-extinguisher', text: 'Rain-proof Covered' }
-            ],
-            type: "venue"
-        }
-    ];
-
-    // 2. JS FUNCTION: Function to generate the HTML string for a single event card
-    function generateEventCard(item) {
-        
-        // Generate Tags HTML (e.g., Wedding, High Capacity)
-        const tagsHtml = item.tags.map(tag => {
-            let colorClass = 'bg-blue-600';
-            if (tag === 'High Capacity') colorClass = 'bg-red-600';
-            if (tag === 'Outdoor') colorClass = 'bg-green-600';
-            if (tag === 'Wedding') colorClass = 'bg-pink-600';
-            if (tag === 'Photoshoot') colorClass = 'bg-yellow-600';
-            return `<span class="${colorClass} text-white px-3 py-1 rounded-full text-sm font-semibold">${tag}</span>`;
-        }).join('');
-
-        // Generate Features HTML
-        const featuresHtml = item.features.map(feature => `
-            <div class="flex items-center">
-                <i class="${feature.icon} text-blue-600 mr-2"></i>
-                <span>${feature.text}</span>
-            </div>
-        `).join('');
-
-        // --- IMAGE CONTENT HTML LOGIC (Using the existing complex image display) ---
-        let imageContentHtml = ``;
-        const images = Array.isArray(item.image) ? item.image : [item.image].filter(Boolean);
-
-        if (images.length > 0) {
-            if (images.length > 1) {
-                const primaryImage = images[0];
-                const secondaryImage = images[1];
-                
-                imageContentHtml = `
-                    <div class="grid grid-cols-3 h-64 gap-1 p-1">
-                        <div class="col-span-2 h-full overflow-hidden rounded-xl">
-                            <img src="${primaryImage}" alt="${item.name} Primary View" class="w-full h-full object-cover">
-                        </div>
-                        <div class="col-span-1 h-full overflow-hidden rounded-xl">
-                            <img src="${secondaryImage}" alt="${item.name} Secondary View" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                `;
-            } else {
-                imageContentHtml = `
-                    <div class="h-64 overflow-hidden">
-                        <img src="${images[0]}" alt="${item.name}" class="w-full h-full object-cover">
-                    </div>
-                `;
-            }
-        } else {
-            imageContentHtml = `
-                <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-500 font-bold text-xl">IMAGE MISSING</span>
-                </div>
-            `;
-        }
-        
-        // Return the full HTML card string
-        return `
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <div class="relative">
-                    ${imageContentHtml}
-                    <div class="absolute top-4 left-4 flex space-x-2">
-                        ${tagsHtml}
-                    </div>
-                    <button class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50">
-                        <i class="far fa-heart text-gray-600"></i>
-                    </button>
-                    ${images.length > 1 ? `
-                        <div class="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full px-4 py-2 shadow-lg text-sm font-semibold cursor-pointer hover:bg-blue-700 transition duration-200">
-                            View All ${images.length} Photos
-                        </div>
-                    ` : `
-                        <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg text-sm text-gray-700 font-semibold cursor-pointer hover:bg-white transition duration-200">
-                            More Photos
-                        </div>
-                    `}
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-3">
+    <main class="pt-2">
+        <section class="bg-white shadow-sm border-b">
+            <div class="max-w-7xl mx-auto px-4 py-6">
+                <h1 class="text-4xl font-extrabold text-teal-800 mb-6">Plan Your Event</h1>
+                <div class="bg-gray-50 rounded-2xl p-6 mb-6 shadow-inner">
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-900">${item.name}</h3>
-                            <div class="flex items-center mt-1">
-                                <span class="text-sm text-gray-600">${item.subtitle}</span>
-                            </div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Event Date</label>
+                            <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
                         </div>
-                        <div class="text-right">
-                            <div class="text-3xl font-bold text-red-600">₱${item.price}</div>
-                            <div class="text-gray-600 text-sm">${item.type === 'reception' ? 'All-in Package Price' : 'Venue Rental Only'}</div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Guests</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                                <option>1 - 50</option>
+                                <option>51 - 100</option>
+                                <option>101 - 200</option>
+                                <option>200+ </option>
+                            </select>
                         </div>
-                    </div>
-                    <p class="text-gray-600 mb-4">${item.description}</p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
-                        ${featuresHtml}
-                    </div>
-
-                    <div class="flex space-x-3">
-                        <button class="flex-1 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 font-semibold">
-                            ${item.buttonText}
-                        </button>
-                        <button class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Event Type</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                                <option selected>All Packages & Venues</option>
+                                <option>Wedding Packages</option>
+                                <option>Birthday Packages</option>
+                                <option>Photoshoot / Prenup</option>
+                                <option>Function Halls</option>
+                                <option>Outdoor Venues</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Venue Style</label>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
+                                <option selected>All Styles</option>
+                                <option>Indoor / Airconditioned</option>
+                                <option>Outdoor / Garden</option>
+                                <option>Poolside</option>
+                                <option>View Deck</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button class="w-full bg-teal-600 text-white p-3 rounded-lg hover:bg-teal-700 font-bold transition duration-200">
+                                <i class="fas fa-search mr-2"></i>Check Availability
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        `;
-    }
+        </section>
 
-    // 3. DYNAMIC RENDERING: Loop through the data and render to the DOM
-    document.addEventListener('DOMContentLoaded', () => {
-        const receptionContainer = document.getElementById('reception-packages-list');
-        const venuesContainer = document.getElementById('venues-list');
-        
-        let receptionHtml = '';
-        let venueHtml = '';
+        <section class="py-12">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Reception Packages</h2>
+                <div id="reception-packages-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"></div>
 
-        // Separate data into two sections and generate HTML
-        eventsData.forEach(item => {
-            if (item.type === 'reception') {
-                receptionHtml += generateEventCard(item);
-            } else if (item.type === 'venue') {
-                venueHtml += generateEventCard(item);
-            }
-        });
+            </div>
+        </section>
+    </main>
 
-        // Inject the generated HTML into the respective containers
-        receptionContainer.innerHTML = receptionHtml;
-        venuesContainer.innerHTML = venueHtml;
-    });
-</script>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="bg-teal-600 text-white p-6 rounded-t-2xl relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-gray-200 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="text-2xl font-bold" id="modalEventName">Book Event Package</h3>
+                <p class="text-teal-100 mt-1" id="modalEventSubtitle"></p>
+            </div>
+
+            <div class="p-6">
+                <div class="mb-6 pb-6 border-b">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-gray-600">Package Price:</span>
+                        <span class="text-3xl font-bold text-teal-600" id="modalEventPrice">₱180,000</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-3" id="modalEventType"></p>
+                    <p class="text-sm text-gray-600" id="modalEventDescription"></p>
+                    
+                    <div id="modalEventFeatures" class="mt-4 grid grid-cols-2 gap-3 text-sm"></div>
+                </div>
+
+                <form id="bookingForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-calendar mr-2 text-teal-600"></i>Event Date
+                            </label>
+                            <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-clock mr-2 text-teal-600"></i>Event Time
+                            </label>
+                            <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                                <option value="">Select time</option>
+                                <option>Morning (8AM - 12PM)</option>
+                                <option>Afternoon (1PM - 5PM)</option>
+                                <option>Evening (6PM - 10PM)</option>
+                                <option>All Day (8AM - 10PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-users mr-2 text-teal-600"></i>Number of Guests
+                            </label>
+                            <input type="number" min="1" value="50" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-glass-cheers mr-2 text-teal-600"></i>Event Type
+                            </label>
+                            <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                                <option value="">Select event type</option>
+                                <option>Wedding</option>
+                                <option>Birthday</option>
+                                <option>Debut</option>
+                                <option>Anniversary</option>
+                                <option>Corporate Event</option>
+                                <option>Photoshoot</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2 text-teal-600"></i>Full Name
+                            </label>
+                            <input type="text" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-phone mr-2 text-teal-600"></i>Contact Number
+                            </label>
+                            <input type="tel" required placeholder="09XX XXX XXXX" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2 text-teal-600"></i>Email Address
+                        </label>
+                        <input type="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-utensils mr-2 text-teal-600"></i>Catering Preferences (Optional)
+                        </label>
+                        <textarea rows="2" placeholder="e.g., Buffet style, vegetarian options, special dietary requirements..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-comment mr-2 text-teal-600"></i>Additional Requirements/Notes
+                        </label>
+                        <textarea rows="3" placeholder="Special decorations, specific themes, equipment needs, etc." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                        <label class="text-sm text-gray-600">
+                            I agree to the terms and conditions and understand that this booking is subject to availability confirmation and may require a deposit.
+                        </label>
+                    </div>
+
+                    <div class="flex space-x-3 pt-4">
+                        <button type="submit" class="flex-1 bg-teal-600 text-white py-4 rounded-lg hover:bg-teal-700 font-semibold text-lg transition duration-200">
+                            <i class="fas fa-calendar-check mr-2"></i>Submit Inquiry
+                        </button>
+                        <button type="button" id="cancelBooking" class="px-6 py-4 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold transition duration-200">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+  <div class="max-w-5xl mx-auto px-4 text-center">
+
+    <p class="text-gray-300 text-sm mb-6">
+      © 2024 Shercon Resort & Ecology Park. All Rights Reserved.
+    </p>
+
+    <h3 class="font-semibold text-lg mb-2">CONTACT INFORMATION</h3>
+
+    <p class="text-gray-300 mb-2">Reservation is REQUIRED.</p>
+    <p class="text-gray-300 mb-6">We do not accept walk-in as of the moment.</p>
+
+    <!-- Grid for Phone Numbers and Emails -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+      <!-- Left Column - Phone -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">
+          For inquiries and reservations, please call us at:
+        </h4>
+
+        <p class="text-center">0917-506-1204</p>
+        <p class="text-center">0922-838-5293</p>
+        <p class="text-center">0939-904-7130</p>
+        <p class="text-center">0917-117-5888</p>
+      </div>
+
+      <!-- Right Column - Email -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">You may also email us at:</h4>
+
+        <p class="text-center">info@sherconresort-ecologypark.com</p>
+        <p class="text-center">daytour@sherconresort-ecologypark.com</p>
+        <p class="text-center">overnight@sherconresort-ecologypark.com </p>
+        <p class="text-center">teambuilding@sherconresort-ecologypark.com</p>
+        <p class="text-center">weddings@sherconresort-ecologypark.com</p>
+      </div>
+
+    </div>
+
+    <p class="font-semibold text-sm mt-6">
+      (Office hours are from 8am to 6pm only)
+    </p>
+
+  </div>
+</footer>
+
+    <script src="/js/events.js"></script>
 </body>
 </html>

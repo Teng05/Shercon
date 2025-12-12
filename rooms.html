@@ -6,52 +6,39 @@
     <title>Rooms & Cottages - Shercon Resort</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .modal-backdrop {
+            backdrop-filter: blur(4px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <nav class="bg-white shadow-md w-full fixed top-0 left-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-
-        <img src="Pics/logo.png" class="h-10 w-auto">
-
-        <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">
-            ☰
-        </button>
-
-        <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <img src="Pics/logo.png" class="h-10 w-auto">
+            <button id="menuBtn" class="md:hidden text-gray-700 text-3xl">☰</button>
+            <ul id="navLinks" class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html" class="text-teal-600">Rooms</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="teamBuilding.html">Team Building</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </div>
+        <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
             <li><a href="index.html">Home</a></li>
             <li><a href="rooms.html">Rooms</a></li>
             <li><a href="activities.html">Activities</a></li>
             <li><a href="teamBuilding.html">Team Building</a></li>
             <li><a href="events.html">Events</a></li>
-
         </ul>
+    </nav>
 
+    <div class="bg-white w-full">
+        <div class="w-full flex justify-center py-6">
+            <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
+        </div>
     </div>
-
-    <ul id="mobileMenu" class="hidden flex-col bg-white px-6 pb-4 space-y-3 md:hidden font-semibold text-gray-700">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="rooms.html">Rooms</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="teamBuilding.html">Team Building</a></li>
-            <li><a href="events.html">Events</a></li>
-    </ul>
-</nav>
-
-<script>
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-    });
-</script>
-
-
-<div class="bg-white w-full">
-    <div class="w-full flex justify-center py-6">
-        <img src="Pics/logo.png" class="h-auto w-auto object-contain mt-10">
-    </div>
-</div>
 
     <section class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 py-6">
@@ -59,15 +46,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Check-in</label>
-                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
                     </div>
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Check-out</label>
-                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
                     </div>
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Guests</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
                             <option>1 Guest</option>
                             <option>2 Guests</option>
                             <option>3 Guests</option>
@@ -76,7 +63,7 @@
                     </div>
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2">Room Type</label>
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500">
                             <option selected>All Types</option>
                             <option value="Daytour">Daytour Cottages</option>
                             <option value="Overnight">Overnight Room Accommodations</option>
@@ -85,647 +72,179 @@
                         </select>
                     </div>
                     <div class="flex items-end">
-                        <button class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+                        <button class="w-full bg-teal-600 text-white p-3 rounded-lg hover:bg-teal-700">
                             <i class="fas fa-search mr-2"></i>Search
                         </button>
                     </div>
                 </div>
             </div>
 
-
             <section class="py-12">
                 <div class="max-w-7xl mx-auto px-4">
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Day Tour Cottages</h2>
-                    <div id="Daytour-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        </div>
+                    <div id="Daytour-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"></div>
 
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Overnight Accommodation</h2>
-                    <div id="Overnight-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        </div>
+                    <div id="Overnight-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"></div>
                     
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Cliffview Residences</h2>
-                    <div id="Cliffview-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        </div>
+                    <div id="Cliffview-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"></div>
 
                     <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2 text-center md:text-left">Function Halls</h2>
-                    <div id="Function-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        </div>
+                    <div id="Function-list" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
                 </div>
             </section>
-
         </div>
     </section>
 
-    <script>
-        const cottagesData = [
-            // Daytour cottages data
-            {
-                name: "KUBO SINGLE",
-                subtitle: "Standard Open-Air Cottage",
-                price: "1,000.00",
-                description: "A compact open cottage perfect for small groups enjoying a day tour.",
-                image: ["Pics/Kubo/kubo1.jpg"],
-                tags: ["Daytour", "Popular"],
-                buttonText: "Reserve Cottage",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max 6 guests' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
-                    { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "KUBO TWIN",
-                subtitle: "Standard Open-Air Cottage",
-                price: "2,000.00",
-                description: "Larger open cottage for family outings or medium-sized day tour groups.",
-                image: ["Pics/Kubo/kubo 2.jpg"],
-                tags: ["Daytour", "Popular"],
-                buttonText: "Reserve Cottage",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **12 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
-                    { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "KUBO FAMILY",
-                subtitle: "Large Open-Air Cottage",
-                price: "2,500.00",
-                description: "A generously sized open cottage ideal for large family gatherings or groups.",
-                image: ["Pics/Kubo/kubo f.jpg"],
-                tags: ["Daytour"],
-                buttonText: "Reserve Cottage",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **20 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
-                    { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "BOUGAINVILLEA BENCHES",
-                subtitle: "Open Seating Area",
-                price: "800.00",
-                description: "Shaded bench area for smaller, casual day tour groups.",
-                image: ["Pics/BB/BB1.jpg", "Pics/BB/bb2.jpg", "Pics/BB/bb3.png"], 
-                tags: ["Daytour"],
-                buttonText: "Reserve Bench",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **6 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-leaf', text: 'Garden Area' },
-                    { icon: 'fas fa-chair', text: 'Bench Seating' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "JAPANESE KUBO",
-                subtitle: "Themed Open Cottage",
-                price: "1,000.00",
-                description: "A small cottage with a unique Japanese aesthetic, suitable for intimate groups.",
-                image: ["Pics/Japanese kubo/japanese-kubo-a.jpg", "Pics/Japanese kubo/japanese-kubo.jpg", "Pics/Japanese kubo/japanese-kubo1.jph"], 
-                tags: ["Daytour"],
-                buttonText: "Reserve Cottage",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **6 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-fan', text: 'Themed Design' },
-                    { icon: 'fas fa-chair', text: 'Seating Provided' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "MINI PAVILION",
-                subtitle: "Covered Seating Structure",
-                price: "2,000.00",
-                description: "A semi-private, covered pavilion with pre-arranged tables and chairs for convenience.",
-                image: ["Pics/Mini Pavilion/mini-pavilion-4_1.jpg", "Pics/Mini Pavilion/mini-pavilion3.jpg", "Pics/Mini Pavilion/mini-pavilion6_1.jpg"], 
-                tags: ["Daytour", "With Seating"],
-                buttonText: "Reserve Pavilion",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **12 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-table', text: '**Tables & Chairs**' },
-                    { icon: 'fas fa-umbrella', text: 'Covered Area' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "KUBO CABANA",
-                subtitle: "Premium Covered Cabana",
-                price: "2,000.00",
-                description: "A larger, private cabana right next to the main pool, offering premium shade and space.",
-                image: ["Pics/Kubo Kabana/img-7155_1.jpg", "Pics/Kubo Kabana/img-7157_1.jpg", "Pics/Kubo Kabana/img-7158_1.jpg"],
-                tags: ["Daytour", "Premium"],
-                buttonText: "Reserve Cabana",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **15 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-swimmer', text: 'Near Pool Area' },
-                    { icon: 'fas fa-couch', text: 'Lounge Seating' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "L PAVILION",
-                subtitle: "Budget Open Cottage",
-                price: "4,000.00",
-                description: "Our most affordable, smallest open cottage for couples or very small groups.",
-                image: ["Pics/L Pavilion/l-pav-02.jpg"],
-                tags: ["Daytour", "Budget"],
-                buttonText: "Reserve Cottage",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-tree', text: 'Open-Air Design' },
-                    { icon: 'fas fa-chair', text: 'Simple Seating' }
-                ],
-                type: "Daytour"
-            },
-            {
-                name: "PRIME PAVILION",
-                subtitle: "High Capacity Hall",
-                price: "2,500.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Prime Pavilion/img-5320.jpg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "BAHAY KUBO (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "3,000.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Bahay Kubo/img-5322.jpg", "Pics/Bahay Kubo/mg-5682_1.jpg", "Pics/Bahay Kubo/mg-6551.jpg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "FARM HUT (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "3,500.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Farm hut/farm-hut.jpg", "Pics/Farm hut/fullsizerende.jpg", "Pics/Farm hut/fullsizerender-7.jpg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "TREE HOUSE PAVILION (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "6,000.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Tree house/1-165-orig.jpeg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'ideal for 30pax' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "BOUGAINVILLEA HALL (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "6,000.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/BH/bougainvillea-hall.jpeg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'ideal for 60pax' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "LEISURE HALL (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "8,000.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/Leisure hall/leisure-hall.jpeg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'ideal for 80pax' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour" 
-            },
-            {
-                name: "INFINITY HALL (Daytour Hall)",
-                subtitle: "Enclosed Hall on View Deck",
-                price: "8,000.00",
-                description: "An enclosed hall on the view deck, perfect for large parties, seminars, or special events.",
-                image: ["Pics/infinity hall/infinity-pavilion-2-orig.jpeg"],
-                tags: ["Daytour", "High Capacity", "Enclosed"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'ideal for 70pax' },
-                    { icon: 'fas fa-sun', text: 'Day Use Only' },
-                    { icon: 'fas fa-wind', text: 'Stunning View' },
-                    { icon: 'fas fa-table', text: 'Tables & Chairs' }
-                ],
-                type: "Daytour"
-            },
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="bg-teal-600 text-white p-6 rounded-t-2xl relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-gray-200 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h3 class="text-2xl font-bold" id="modalRoomName">Book Room</h3>
+                <p class="text-teal-100 mt-1" id="modalRoomSubtitle"></p>
+            </div>
 
-            // Overnight Accommodation Data (Rooms & Suites)
-            {
-                name: "Pool Villa",
-                subtitle: "Private Pool Access Suite",
-                price: "12,000.00", // Adjusted price for an Overnight Villa
-                description: "A luxury suite with exclusive access to a private pool, ideal for family retreats.",
-                image: ["Pics/Overnight/Pool_Villa.jpg", "Pics/Prime Pavilion/img-5320.jpg"], // Assuming an image path
-                tags: ["Overnight", "Luxury", "Private Pool"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **8 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-bed', text: '2 Bedrooms' },
-                    { icon: 'fas fa-water', text: 'Private Pool' }
-                ],
-                type: "Overnight"
-            },
-            {
-                name: "Club Manuel Suites",
-                subtitle: "Standard Family Room",
-                price: "4,000.00",
-                description: "Comfortable and affordable room accommodation for small groups or families.",
-                image: ["Pics/Overnight/Club_Manuel_Suite.jpg"], // Assuming an image path
-                tags: ["Overnight", "Budget"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
-                    { icon: 'fas fa-bath', text: 'Private Bath' }
-                ],
-                type: "Overnight"
-            },
-            {
-                name: "ForestVille Suites",
-                subtitle: "Forest View Accommodation",
-                price: "3,000.00",
-                description: "A peaceful room nestled near the forest area, offering a tranquil escape.",
-                image: ["Pics/Overnight/Forestville_Suite.jpg", "Pics/Bahay Kubo/mg-6551.jpg"], // Assuming an image path
-                tags: ["Overnight", "Nature View"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
-                    { icon: 'fas fa-tree', text: 'Forest View' }
-                ],
-                type: "Overnight"
-            },
-            {
-                name: "Club Manuel Cabins",
-                subtitle: "Budget Twin Cabin",
-                price: "3,500.00",
-                description: "Simple and cozy cabin perfect for couples or friends on a short stay.",
-                image: ["Pics/Overnight/Club_Manuel_Cabin.jpg", "Pics/Farm hut/fullsizerender-7.jpg"], // Assuming an image path
-                tags: ["Overnight", "Cabin"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **2 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-air-conditioner', text: 'Air-conditioned' },
-                    { icon: 'fas fa-shower', text: 'Shared Bath Option' }
-                ],
-                type: "Overnight"
-            },
-            
-            // Cliffview Residences Data
-            {
-                name: "Package 1 - Cliffview Residence",
-                subtitle: "Luxury View Deck Residence",
-                price: "15,000.00",
-                description: "Exclusive residence units offering a stunning panoramic cliff view and premium amenities.",
-                image: ["Pics/Cliffview/Cliffview_Residence.jpg", "Pics/Tree house/1-165-orig.jpeg"],
-                tags: ["Cliffview", "Luxury", "Best View"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **10 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-mountain', text: 'Cliff View' },
-                    { icon: 'fas fa-kitchen-set', text: 'Kitchenette' }
-                ],
-                type: "Cliffview"
-            },
-            {
-                name: "Package 2 - Cliffview Residence",
-                subtitle: "Duplex with Infinity Pool Access",
-                price: "6,000.00",
-                description: "A two-story unit with direct access to the resort's signature infinity pool.",
-                image: ["Pics/Cliffview/Infinity_Duplex.jpg", "Pics/BH/bougainvillea-hall.jpeg"],
-                tags: ["Cliffview", "Infinity Pool", "Premium"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **4 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-water', text: 'Pool Access' },
-                    { icon: 'fas fa-toilet', text: 'Private Restroom' }
-                ],
-                type: "Cliffview"
-            },
-            {
-                name: "Package 3 - Cliffview Residence ",
-                subtitle: "Large Family Guesthouse",
-                price: "8,000.00",
-                description: "A spacious, standalone house suitable for large families or groups looking for privacy.",
-                image: ["Pics/Cliffview/Blue_House.jpg", "Pics/Leisure hall/leisure-hall.jpeg"],
-                tags: ["Cliffview", "Large Group", "Private"],
-                buttonText: "Book Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **15 guests**' },
-                    { icon: 'fas fa-moon', text: 'Overnight Stay' },
-                    { icon: 'fas fa-home', text: 'Entire House' },
-                    { icon: 'fas fa-utensils', text: 'Dining Area' }
-                ],
-                type: "Cliffview"
-            },
-            
-            // Function Hall Data
-            {
-                name: "Club Manuel Hall",
-                subtitle: "Wedding & Corporate Events",
-                price: "25,000.00",
-                description: "Our largest function space, perfect for grand weddings, corporate seminars, and big celebrations.",
-                image: ["Pics/Function/Grand_Ballroom.jpg", "Pics/Function/Grand_Ballroom_2.jpg"],
-                tags: ["Function", "High Capacity", "Events"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **300 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-microphone', text: 'Stage & A/V' },
-                    { icon: 'fas fa-handshake', text: 'Dedicated Staff' }
-                ],
-                type: "Function"
-            },
-            {
-                name: "PlayPool Hall",
-                subtitle: "Intimate Parties & Receptions",
-                price: "10,000.00",
-                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
-                image: ["Pics/Function/Garden_Gazebo.jpg"],
-                tags: ["Function", "Outdoor", "Intimate"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-tree', text: 'Garden Setting' },
-                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
-                ],
-                type: "Function"
-            },
-            {
-                name: "Ecology Hall",
-                subtitle: "Intimate Parties & Receptions",
-                price: "10,000.00",
-                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
-                image: ["Pics/Function/Garden_Gazebo.jpg"],
-                tags: ["Function", "Outdoor", "Intimate"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-tree', text: 'Garden Setting' },
-                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
-                ],
-                type: "Function"
-            },
-            {
-                name: "Infinity Hall",
-                subtitle: "Intimate Parties & Receptions",
-                price: "10,000.00",
-                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
-                image: ["Pics/Function/Garden_Gazebo.jpg"],
-                tags: ["Function", "Outdoor", "Intimate"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-tree', text: 'Garden Setting' },
-                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
-                ],
-                type: "Function"
-            },
-            {
-                name: "Tree House Pavilion",
-                subtitle: "Intimate Parties & Receptions",
-                price: "10,000.00",
-                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
-                image: ["Pics/Function/Garden_Gazebo.jpg"],
-                tags: ["Function", "Outdoor", "Intimate"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-tree', text: 'Garden Setting' },
-                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
-                ],
-                type: "Function"
-            },
-            {
-                name: "Conference Hall",
-                subtitle: "Intimate Parties & Receptions",
-                price: "10,000.00",
-                description: "A beautiful open-air gazebo set in a lush garden, ideal for small, romantic events.",
-                image: ["Pics/Function/Garden_Gazebo.jpg"],
-                tags: ["Function", "Outdoor", "Intimate"],
-                buttonText: "Inquire Now",
-                features: [
-                    { icon: 'fas fa-users', text: 'Max **50 guests**' },
-                    { icon: 'fas fa-calendar-check', text: 'Reservations Only' },
-                    { icon: 'fas fa-tree', text: 'Garden Setting' },
-                    { icon: 'fas fa-lightbulb', text: 'Mood Lighting' }
-                ],
-                type: "Function"
-            },
-        ];
-
-        // 2. JS FUNCTION: Function to generate the HTML string for a single cottage card
-        function generateCottageCard(cottage) {
-            
-            // Generate Tags HTML (e.g., Daytour, Popular)
-            const tagsHtml = cottage.tags.map(tag => {
-                let colorClass = 'bg-blue-600';
-                if (tag === 'Popular') colorClass = 'bg-orange-500';
-                if (tag === 'With Seating') colorClass = 'bg-teal-500';
-                if (tag === 'Premium') colorClass = 'bg-yellow-600';
-                if (tag === 'Budget') colorClass = 'bg-green-600';
-                if (tag === 'High Capacity') colorClass = 'bg-red-600';
-                if (tag === 'Overnight') colorClass = 'bg-purple-600'; // Added for clarity
-                if (tag === 'Cliffview') colorClass = 'bg-indigo-600'; // Added for clarity
-                if (tag === 'Function') colorClass = 'bg-pink-600'; // Added for clarity
-                return `<span class="${colorClass} text-white px-3 py-1 rounded-full text-sm font-semibold">${tag}</span>`;
-            }).join('');
-
-            // Generate Features HTML (e.g., Max 6 guests, Day Use Only)
-            const featuresHtml = cottage.features.map(feature => `
-                <div class="flex items-center">
-                    <i class="${feature.icon} text-blue-600 mr-2"></i>
-                    <span>${feature.text}</span>
-                </div>
-            `).join('');
-
-            // --- REFACTORED IMAGE CONTENT HTML LOGIC ---
-            let imageContentHtml = ``;
-            const images = Array.isArray(cottage.image) ? cottage.image : [cottage.image].filter(Boolean);
-
-            if (images.length > 0) {
-                // If there are multiple images, use a grid layout for the frame
-                if (images.length > 1) {
-                    const primaryImage = images[0];
-                    const secondaryImage = images[1];
-                    
-                    imageContentHtml = `
-                        <div class="grid grid-cols-3 h-64 gap-1 p-1">
-                            <div class="col-span-2 h-full overflow-hidden rounded-xl">
-                                <img src="${primaryImage}" alt="${cottage.name} Primary View" class="w-full h-full object-cover">
-                            </div>
-                            <div class="col-span-1 h-full overflow-hidden rounded-xl">
-                                <img src="${secondaryImage}" alt="${cottage.name} Secondary View" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    // If only one image, use the full width of the frame
-                    imageContentHtml = `
-                        <div class="h-64 overflow-hidden rounded-t-xl">
-                            <img src="${images[0]}" alt="${cottage.name}" class="w-full h-full object-cover">
-                        </div>
-                    `;
-                }
-            } else {
-                // Image Missing Placeholder (H-64 for consistency)
-                imageContentHtml = `
-                    <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-t-xl">
-                        <span class="text-gray-500 font-bold text-xl">IMAGE MISSING</span>
+            <div class="p-6">
+                <div class="mb-6 pb-6 border-b">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600">Price:</span>
+                        <span class="text-3xl font-bold text-teal-600" id="modalRoomPrice">₱1,000</span>
                     </div>
-                `;
-            }
-            
-            // Determine the price display text
-            const priceText = cottage.type === 'Daytour' ? `**+ Entrance Fee**` : `per night`;
-            const inquireButton = cottage.buttonText === 'Inquire Now';
+                    <p class="text-sm text-gray-500" id="modalRoomType"></p>
+                    <p class="text-sm text-gray-600 mt-2" id="modalRoomDescription"></p>
+                </div>
 
-            // Return the full HTML card string
-            return `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="relative">
-                        ${imageContentHtml}
-                        <div class="absolute top-4 left-4 flex space-x-2">
-                            ${tagsHtml}
+                <form id="bookingForm" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-calendar-check mr-2 text-teal-600"></i>Check-in Date
+                            </label>
+                            <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
                         </div>
-                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50">
-                            <i class="far fa-heart text-gray-600"></i>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-calendar-times mr-2 text-teal-600"></i>Check-out Date
+                            </label>
+                            <input type="date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-users mr-2 text-teal-600"></i>Number of Guests
+                            </label>
+                            <input type="number" min="1" max="50" value="2" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-child mr-2 text-teal-600"></i>Number of Children
+                            </label>
+                            <input type="number" min="0" max="20" value="0" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-user mr-2 text-teal-600"></i>Full Name
+                            </label>
+                            <input type="text" required placeholder="Juan Dela Cruz" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">
+                                <i class="fas fa-phone mr-2 text-teal-600"></i>Contact Number
+                            </label>
+                            <input type="tel" required placeholder="09XX XXX XXXX" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-envelope mr-2 text-teal-600"></i>Email Address
+                        </label>
+                        <input type="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-comment mr-2 text-teal-600"></i>Special Requests (Optional)
+                        </label>
+                        <textarea rows="3" placeholder="Any special requirements or requests..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" required class="mt-1 mr-3 h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded">
+                        <label class="text-sm text-gray-600">
+                            I agree to the terms and conditions and understand that this booking is subject to availability confirmation.
+                        </label>
+                    </div>
+
+                    <div class="flex space-x-3 pt-4">
+                        <button type="submit" class="flex-1 bg-teal-600 text-white py-4 rounded-lg hover:bg-teal-700 font-semibold text-lg transition duration-200">
+                            <i class="fas fa-check-circle mr-2"></i>Confirm Reservation
                         </button>
-                        ${images.length > 1 ? `
-                            <div class="absolute bottom-4 right-4 bg-blue-600 text-white rounded-full px-4 py-2 shadow-lg text-sm font-semibold cursor-pointer hover:bg-blue-700 transition duration-200">
-                                View All ${images.length} Photos
-                            </div>
-                        ` : `
-                            <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg text-sm text-gray-700 font-semibold cursor-pointer hover:bg-white transition duration-200">
-                                More Photos
-                            </div>
-                        `}
+                        <button type="button" id="cancelBooking" class="px-6 py-4 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold transition duration-200">
+                            Cancel
+                        </button>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900">${cottage.name}</h3>
-                                <div class="flex items-center mt-1">
-                                    <span class="text-sm text-gray-600">${cottage.subtitle}</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-3xl font-bold text-blue-600">₱${cottage.price}</div>
-                                <div class="text-gray-600 text-sm">${priceText}</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">${cottage.description}</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
-                            ${featuresHtml}
-                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-10">
+  <div class="max-w-5xl mx-auto px-4 text-center">
 
-                        <div class="flex space-x-3">
-                            <button class="flex-1 ${inquireButton ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-600 hover:bg-blue-700'} text-white py-3 rounded-lg font-semibold">
-                                ${cottage.buttonText}
-                            </button>
-                            <button class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50">
-                                <i class="fas fa-info-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+    <p class="text-gray-300 text-sm mb-6">
+      © 2024 Shercon Resort & Ecology Park. All Rights Reserved.
+    </p>
 
-        // 3. DYNAMIC RENDERING: Loop through the data and render to the DOM
-        document.addEventListener('DOMContentLoaded', () => {
-            // Group data by type
-            const categorizedData = cottagesData.reduce((acc, cottage) => {
-                const type = cottage.type;
-                if (!acc[type]) {
-                    acc[type] = [];
-                }
-                acc[type].push(cottage);
-                return acc;
-            }, {});
+    <h3 class="font-semibold text-lg mb-2">CONTACT INFORMATION</h3>
 
-            // Map data to the correct container IDs
-            const containers = {
-                'Daytour': document.getElementById('Daytour-list'),
-                'Overnight': document.getElementById('Overnight-list'),
-                'Cliffview': document.getElementById('Cliffview-list'),
-                'Function': document.getElementById('Function-list')
-            };
+    <p class="text-gray-300 mb-2">Reservation is REQUIRED.</p>
+    <p class="text-gray-300 mb-6">We do not accept walk-in as of the moment.</p>
 
-            // Render each category
-            for (const type in categorizedData) {
-                const listContainer = containers[type];
-                if (listContainer) {
-                    let sectionHtml = '';
-                    categorizedData[type].forEach(cottage => {
-                        sectionHtml += generateCottageCard(cottage);
-                    });
-                    listContainer.innerHTML = sectionHtml;
-                }
-            }
-        });
-    </script>
+    <!-- Grid for Phone Numbers and Emails -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+      <!-- Left Column - Phone -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">
+          For inquiries and reservations, please call us at:
+        </h4>
+
+        <p class="text-center">0917-506-1204</p>
+        <p class="text-center">0922-838-5293</p>
+        <p class="text-center">0939-904-7130</p>
+        <p class="text-center">0917-117-5888</p>
+      </div>
+
+      <!-- Right Column - Email -->
+      <div class="space-y-2">
+        <h4 class="font-semibold text-center mb-3">You may also email us at:</h4>
+
+        <p class="text-center">info@sherconresort-ecologypark.com</p>
+        <p class="text-center">daytour@sherconresort-ecologypark.com</p>
+        <p class="text-center">overnight@sherconresort-ecologypark.com </p>
+        <p class="text-center">teambuilding@sherconresort-ecologypark.com</p>
+        <p class="text-center">weddings@sherconresort-ecologypark.com</p>
+      </div>
+
+    </div>
+
+    <p class="font-semibold text-sm mt-6">
+      (Office hours are from 8am to 6pm only)
+    </p>
+
+  </div>
+</footer>
+
+    <script src="/js/rooms.js"> </script>
 </body>
 </html>
